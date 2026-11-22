@@ -15,5 +15,5 @@
       "dest": "/$1"
     }
   ],
-  "cleanWebhook": true
+  "clean": true
 }
