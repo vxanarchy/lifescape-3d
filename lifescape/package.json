@@ -1,0 +1,29 @@
+{
+  "name": "lifescape",
+  "version": "1.0.0",
+  "description": "A browser-based open-world life simulation game",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .ts,.tsx",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "keywords": ["life-simulation", "open-world", "threejs", "gamedev"],
+  "author": "Claude Code",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.168.0",
+    "@dimforge/rapier3d-compat": "^0.21.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/three": "^0.168.0",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
+  }
+}

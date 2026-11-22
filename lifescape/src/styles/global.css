@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #1a1a2e;
+}
+
+#game-container {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
