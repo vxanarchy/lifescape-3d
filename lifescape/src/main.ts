@@ -51,46 +51,46 @@ class LifescapeGame {
 
   private setupPlayer(): void {
     this.player = new PlayerController(this.scene.camera, this.inputManager, this.physics, {
-      moveSpeed: 1,
-      runSpeedMultiplier: 1,
-      jumpForce: 1,
-      gravity: -1,
+      moveSpeed: 8,
+      runSpeedMultiplier: 1.6,
+      jumpForce: 8,
+      gravity: -20,
     });
 
     this.scene.scene.add(this.player.model);
-    this.scene.camera.position.set(0, 1, 1);
-    this.scene.camera.lookAt(0, 1, 0);
+    this.scene.camera.position.set(0, 10, 20);
+    this.scene.camera.lookAt(0, 0, 0);
   }
 
   private setupCity(): void {
     this.city = new CityGenerator(this.scene.scene);
 
-    const cityBlock = this.city.generateCityBlock(new THREE.Vector3(0, 0, 0), 1);
-    this.city.addSidewalk(cityBlock, new THREE.Vector3(0, 0, 0), 1);
+    const cityBlock = this.city.generateCityBlock(new THREE.Vector3(0, 0, 0), 80);
+    this.city.addSidewalk(cityBlock, new THREE.Vector3(0, 0, 0), 80);
   }
 
   private setupInitialCars(): void {
     const sedan = new Car(
-      new THREE.Vector3(-1, 0, 0),
+      new THREE.Vector3(-10, 0, 0),
       0,
-      { maxSpeed: 1, fuelCapacity: 1 },
+      { maxSpeed: 25, fuelCapacity: 50 },
       'sedan_player'
     );
     this.cars.push(sedan);
 
     const taxi = new Car(
-      new THREE.Vector3(1, 0, 1),
-      1,
-      { maxSpeed: 1, fuelCapacity: 1 },
+      new THREE.Vector3(20, 0, 5),
+      Math.PI,
+      { maxSpeed: 30, fuelCapacity: 45 },
       'taxi_traffic_1'
     );
     taxi.state.isDriven = false;
     this.cars.push(taxi);
 
     const motorcycle = new Car(
-      new THREE.Vector3(-1, 0, -1),
-      1,
-      { maxSpeed: 1, fuelCapacity: 1 },
+      new THREE.Vector3(-30, 0, -10),
+      -Math.PI / 4,
+      { maxSpeed: 40, fuelCapacity: 30 },
       'motorcycle_traffic_1'
     );
     motorcycle.state.isDriven = false;
@@ -104,12 +104,12 @@ class LifescapeGame {
   }
 
   private setupLighting(): void {
-    const moonLight = new THREE.DirectionalLight(0xffffff, 1);
-    moonLight.position.set(1, 1, 1);
+    const moonLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    moonLight.position.set(100, 200, 100);
     moonLight.castShadow = false;
     this.scene.scene.add(moonLight);
 
-    const ambient = new THREE.AmbientLight(0x404040, 1);
+    const ambient = new THREE.AmbientLight(0x404040, 0.6);
     this.scene.scene.add(ambient);
   }
 
